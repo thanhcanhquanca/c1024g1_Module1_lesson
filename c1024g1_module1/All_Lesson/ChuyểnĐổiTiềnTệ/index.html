@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyên doi tien te</title>
+</head>
+<style>
+    .money{
+        height: 24px;
+        width: 200px;
+    }
+    money1{
+        height:24px ;
+        width: 100px;
+    }
+</style>
+<body>
+<label> Nhập số tiền cần chuyển</label><br>
+<input class="money" type="number" id="numberInput">
+Chuyển đổi từ <select id="originalNumber">
+    <option value="VND" >VND</option>
+    <option value="USD">USD</option>
+    <option value="ERU">ERU</option>
+</select>
+
+to <select id="toMoney">
+    <option value="USD">USD</option>
+    <option value="ERU">ERU</option>
+    <option value="VND" >VND</option>
+</select>
+
+<div id="result"></div>
+
+<script src="/ChuyểnĐổiTiềnTệ/crency_conversion.js"></script>
+</body>
+</html>
