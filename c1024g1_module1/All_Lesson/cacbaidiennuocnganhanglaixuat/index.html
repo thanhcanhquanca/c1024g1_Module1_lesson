@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+
+  let celsius = parseFloat(document.getElementById("celsius").value);
+
+  // Giới hạn nhiệt độ từ -273.15°C đến 1000°C
+  if (celsius < -273.15 || celsius > 1000) {
+    document.getElementById("resultFahrenheit").innerText =
+            "Vui lòng nhập nhiệt độ từ -273.15°C đến 1000°C.";
+  } else {
+    let fahrenheit = celsius * 9 / 5 + 32;
+    document.getElementById("resultFahrenheit").innerText =
+            celsius + "°C = " + fahrenheit.toFixed(2) + "°F";
+  }
+
+  // Bài 1: Chuyển từ độ C sang độ F.
+  let celsius = parseInt(prompt("nhap do c"));
+  if(celsius < -200 || celsius >1000){
+    let fahrenheit = celsius * 9 / 5 + 32;
+    alert(fahrenheit + " F");
+  }else {
+    alert("ban da bay mau");
+  }
+
+  // Bài 2: Chuyển từ mét sang feet:
+  let meters = parseFloat(prompt("Nhập vào số mét:"));
+  if (meters > 0) {
+    let feet = meters * 3.2808;
+    alert(feet + " ft");
+  } else {
+    alert("Vui lòng nhập một giá trị mét hợp lệ (lớn hơn 0).");
+  }
+
+
+  // Bài 3: Tính diện tích hình vuông khi biết cạnh a.
+  let a = parseFloat(prompt("Nhập vào cạnh a của hình vuông:"));
+  if (a > 0) {
+    let result = a * a;
+    alert("Diện tích hình vuông là: " + result);
+  } else {
+    alert("Vui lòng nhập một giá trị cạnh hợp lệ (lớn hơn 0).");
+  }
+
+
+  // Bài 4: Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b.
+
+  let a = parseFloat(prompt("Nhập vào cạnh a của hình chữ nhật:"));
+  let b = parseFloat(prompt("Nhập vào cạnh b của hình chữ nhật:"));
+  if (a > 0 && b > 0) {
+    let result = a * b;
+    alert("Diện tích hình chữ nhật là: " + result);
+  } else {
+    alert("Vui lòng nhập các giá trị cạnh hợp lệ (lớn hơn 0).");
+  }
+
+
+  // Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.
+
+  let a = parseFloat(prompt("Nhập vào cạnh a của tam giác vuông:"));
+  let b = parseFloat(prompt("Nhập vào cạnh b của tam giác vuông:"));
+  if (a > 0 && b > 0) {
+    let result = 0.5 * a * b;
+    alert("Diện tích tam giác vuông là: " + result);
+  } else {
+    alert("Vui lòng nhập các giá trị cạnh hợp lệ (lớn hơn 0).");
+  }
+
+
+  // Bài 6: Giải phương trình bậc 1.
+
+  let a = parseFloat(prompt("nhap vao a"));
+  let b = parseFloat(prompt("nhap vao b"));
+
+  if (a === 0) {
+    if (b === 0) {
+      alert("phuong trinh co vo so nghiem");
+    } else {
+      alert("phuong trinh vo nghiem")
+    }
+  } else {
+    let x = -b / a;
+    alert("reulst : " + x);
+  }
+
+  // Bài 7: Giải phương trình bậc 2.
+  // Phương trình có dạng: ax² + bx + c = 0
+
+  let a = parseFloat(prompt("Nhập vào a"));
+  let b = parseFloat(prompt("Nhập vào b"));
+  let c = parseFloat(prompt("Nhập vào c"));
+
+  if (a === 0) {
+    alert("Hệ số a phải khác 0");
+  } else {
+    let delta = b * b - 4 * a * c;
+
+    if (delta > 0) {
+      let x1 = (-b + Math.sqrt(delta)) / (2 * a);
+      let x2 = (-b - Math.sqrt(delta)) / (2 * a);
+      alert("Phương trình có 2 nghiệm phân biệt: x1 = " + x1 + " và x2 = " + x2);
+    } else if (delta === 0) {
+      let x = -b / (2 * a);
+      alert("Phương trình có nghiệm kép: x = " + x);
+    } else {
+      alert("Phương trình vô nghiệm (delta < 0)");
+    }
+  }
+
+  // Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.
+
+  let a = parseInt(prompt("nhập vào tuôi"));
+  if(a> 0 && a<=120){
+    alert("Đây là một số hợp lệ cho tuổi của một người.");
+  }else {
+    alert("Đây là một số không khong hợp lệ cho tuổi của một người.");
+  }
+
+
+  // Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của một tam giác là:
+
+  let a = parseFloat(prompt("Nhập vào a"));
+  let b = parseFloat(prompt("Nhập vào b"));
+  let c = parseFloat(prompt("Nhập vào c"));
+
+  if (a,b,c > 0){
+    alert("đây không phai là một tam giác có");
+  }else if ((a + b > c && (b + c > a) && (a + c > b) )){
+    alert("đây là một tam giác oki")
+  }
+
+  // Bài 10: Tính giá điện
+
+  let kWh = parseFloat(prompt("Nhập vào số kWh tiêu thụ điện:"));
+  let a = 50;
+  let b = 100;
+  let c = 200;
+
+  let h1 = 1000;
+  let h2 = 1500;
+  let h3 = 2000;
+  let h4 = 2500;
+
+  if (kWh <= 0) {
+    alert("Số kWh không hợp lệ. Vui lòng nhập lại.");
+  } else {
+    let totalPrice = 0;
+
+    if (kWh <= a){
+      totalPrice = kWh * h1;
+    }else if (kWh <= b){
+      totalPrice = (a * h1) + (kWh - a)*h2;
+    }else if (kWh <= c){
+      totalPrice = (a*h1) + (b*h2)+(kWh - b)*h3;
+    }else {
+      totalPrice = (a*h1) + (b*h2)+ (c*h3) +(kWh - c)*h4;
+    }
+
+    alert(`số tiền ban phải trả là ${totalPrice} VND` )
+  }
+
+
+  // Bài 11: Tính thuế thu nhập cá nhân
+
+  // Bài 11: Tính thuế thu nhập cá nhân
+
+  let income = parseFloat(prompt("Nhập vào thu nhập cá nhân hàng tháng (VND):"));
+
+
+  let limit1 = 5000000;
+  let limit2 = 10000000;
+  let limit3 = 18000000;
+  let limit4 = 32000000;
+
+  let taxRate1 = 0.10;
+  let taxRate2 = 0.15;
+  let taxRate3 = 0.20;
+  let taxRate4 = 0.25;
+
+  if (income <= 0){
+    alert("thu nhập không hợp lệ vui lòng nhập lại ");
+  }else {
+    let tax = null;
+
+    if (income <= limit1){
+      tax = 0;
+    }else if (income <= limit2){
+      tax = (income - limit1)* taxRate1;
+    }else if(income <= limit3) {
+      tax = (income - limit2)*taxRate2 + (limit2 - limit1)* taxRate1;
+    }else if(income <= limit4){
+      tax = (income - limit3)*taxRate3 + (limit3 - limit2)* taxRate2 + (limit2 - limit1)*taxRate1;
+    }else{
+      tax = (income - limit4)*taxRate4 + (limit4 -limit2)* taxRate3 +(limit3-limit2)*taxRate2+ (limit2 - limit1)*taxRate1;
+    }
+    alert(`thu ca nhan cua ban la ${tax} VND`)
+  }
+
+
+  //  // Bài 12: Tính lãi ngân hàng (lãi mẹ đẻ lãi con) A=P×(1+r)
+
+
+  let principal = parseInt(prompt("Nhập vào số tiền ban đầu gốc :"));
+  let months = parseInt(prompt("Nhập vào số tháng cho vay:"));
+  let monthlyRate = parseFloat(prompt("Nhập vào lãi suất hàng tháng %):"));
+
+  if (principal <= 0 || months <= 0 || monthlyRate < 0) {
+    alert("Dữ liệu nhập vào không hợp lệ. Vui lòng nhập lại.");
+  } else {
+    let totalAmount = principal * Math.pow(1 + monthlyRate, months); // Tính tổng số tiền cuối cùng sau khi cộng lãi kép oki
+    let interest = totalAmount - principal;   // Tính số tiền lãi
+
+    alert(`Số tiền ban đầu là ${principal} VND, vay trong ${months} tháng,
+   với lãi suất hàng tháng là ${monthlyRate * 100}%.
+   \nTổng số tiền nhận được sau ${months} tháng là:
+    ${totalAmount} VND.\nLãi thu được là: ${interest} VND.`);
+  }
+
+
+
+
+</script>
+
+</body>
+</html>
