@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trung Binh Cong cua mang chia het cho 3</title>
+</head>
+<body>
+<script>
+  let numberMax = 10;
+  let array = [];
+  let sum = 0;
+  let count = 0;
+
+  for (let i = 0; i < numberMax; i++) {
+    let number = +prompt(`Nhập vào phần tử thứ ${i + 1}:`);
+    array.push(number);
+
+    // Kiểm tra nếu số chia hết cho 3
+    if (number % 3 === 0) {
+      sum += number;
+      count++;
+    }
+  }
+
+  // Tính trung bình cộng
+  let average = count > 0 ? sum / count : 0;
+  // let average;
+  // if (count > 0) {
+  //   average = sum / count;
+  // } else {
+  //   average = 0;
+  // }
+
+  // Hiển thị kết quả
+  alert(`Mảng của bạn: ${array.join(", ")}`);
+  alert(`Tổng các số chia hết cho 3: ${sum}`);
+  alert(`Trung bình cộng các số chia hết cho 3: ${average}`);
+
+
+</script>
+</body>
+</html>

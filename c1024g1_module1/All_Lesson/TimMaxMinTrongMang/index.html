@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim Max Min Trong Mang</title>
+</head>
+<body>
+<script>
+  // // tim max co san mang
+  // let arr = [2,23,2,43,24,65,23,5];
+  // let max = arr[0];
+  // for (let i = 1; i <arr.length ; i++) {
+  //   if (arr[i] > max){
+  //     max = arr[i];
+  //   }
+  // }
+  //
+  // alert(max);
+
+
+  // // tim max nhap vao
+
+  let maxInput = 10;
+  let array = [];
+
+  for (let i = 0; i < maxInput; i++) {
+    let num = +prompt(`Nhập số thứ ${i + 1} (hoặc bấm hủy để dừng):`);
+
+    if (isNaN(num)) {
+      break;
+    }
+
+    array.push(num);
+  }
+
+  if (array.length === 0) {
+    alert("Không có số nào được nhập.");
+  } else {
+    let max = array[0];
+    for (let i = 1; i < array.length; i++) {
+      if (array[i] > max) {
+        max = array[i];
+      }
+    }
+    alert(`Mảng của bạn: ${array.join(", ")}`);
+    alert(`Số lớn nhất trong mảng là: ${max}`);
+  }
+
+
+
+
+
+
+</script>
+</body>
+</html>
