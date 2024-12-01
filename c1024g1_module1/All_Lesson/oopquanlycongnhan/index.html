@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quản Lý Công Nhân</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Danh Sách Công Nhân</h2>
+
+<table id="workerTable">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Họ và tên</th>
+    <th>Ngày Sinh</th>
+    <th>Địa Chỉ</th>
+    <th>Lương</th>
+    <th>Chức Vụ</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Các hàng công nhân sẽ được chèn vào đây -->
+  </tbody>
+</table>
+
+<script>
+  // Định nghĩa lớp Worker
+  class Worker {
+    constructor(id, name, birthDate, address, salary, position) {
+      this.id = id;
+      this.name = name;
+      this.birthDate = birthDate;
+      this.address = address;
+      this.salary = salary;
+      this.position = position;
+    }
+  }
+
+  // Mảng chứa các công nhân
+  const workers = [
+    new Worker(1, "Trương Tấn A", "11-11-1997", "Quảng Nam", 2000, "Abc"),
+    new Worker(2, "Trương Tấn C", "11-11-1999", "Huế", 2000, "Abc"),
+    new Worker(3, "Trương Tấn B", "11-11-1998", "Đà Nẵng", 2000, "Abc"),
+  ];
+
+  // Thêm công nhân vào bảng
+  function displayWorkers() {
+    const tableBody = document.getElementById('workerTable').getElementsByTagName('tbody')[0];
+    workers.forEach((worker, index) => {
+      const row = tableBody.insertRow();
+      row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${worker.name}</td>
+                <td>${worker.birthDate}</td>
+                <td>${worker.address}</td>
+                <td>${worker.salary}</td>
+                <td>${worker.position}</td>
+            `;
+    });
+  }
+
+  // Gọi hàm để hiển thị công nhân
+  displayWorkers();
+</script>
+
+</body>
+</html>

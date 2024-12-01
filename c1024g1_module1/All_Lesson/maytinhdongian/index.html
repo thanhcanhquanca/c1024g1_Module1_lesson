@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Khai báo và sử dụng biến </title>
+</head>
+<body>
+
+<p>Ứng dụng máy tính đơn giản</p>
+
+<form id="form">
+  <input type="number" placeholder="nhập dữ liệu 1" id="dl1">
+  <input type="number" placeholder="nhập dữ liệu 2" id="dl2">
+  <button type="button" onclick="xlCong()">Cộng</button>
+  <button type="button" onclick="xlTru()">Trừ</button>
+  <button type="button" onclick="xlChia()">Chia</button>
+  <button type="button" onclick="xlNhan()">Nhân</button>
+</form>
+
+<p>Result:</p>
+
+<p id="htkp"></p>
+
+
+
+<script>
+
+  function xlCong() {
+    const dl1 = parseFloat(document.getElementById('dl1').value);
+    const dl2 = parseFloat(document.getElementById('dl2').value);
+
+    const result = dl1 + dl2;
+    document.getElementById("htkp").innerText = "kết quả "+result;
+
+  }
+
+
+  function xlTru() {
+    const dl1 = parseFloat(document.getElementById('dl1').value);
+    const dl2 = parseFloat(document.getElementById('dl2').value);
+    const result = dl1 - dl2;
+    document.getElementById("htkp").innerText = "kết quả "+result;
+  }
+
+  function xlChia() {
+    const dl1 = parseFloat(document.getElementById('dl1').value);
+    const dl2 = parseFloat(document.getElementById('dl2').value);
+    if (dl2 !== 0) {
+      const result = dl1 / dl2;
+      document.getElementById("htkp").innerText = "kết quả "+result;
+    } else {
+      document.getElementById("htkp").innerText = "không thể chia hết cho 0"
+    }
+  }
+
+  function xlNhan(){
+    const dl1 = parseFloat(document.getElementById('dl1').value);
+    const dl2 = parseFloat(document.getElementById('dl2').value);
+
+    const result = dl1*dl2;
+    document.getElementById("htkp").innerText = "kết quả :" + result;
+
+
+  }
+
+
+
+</script>
+
+</body>
+</html>
+
