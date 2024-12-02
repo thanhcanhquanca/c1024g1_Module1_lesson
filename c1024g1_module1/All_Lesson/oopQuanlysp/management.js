@@ -33,26 +33,47 @@ class UserManager{
 
 
     btnSave() {
-        const currentTime = new Date().toLocaleTimeString();
+        const currentTime = new Date().toLocaleString();
 
-        // Tạo đối tượng User mới
-        const newUser = new Users(
-            this.generateRandomID(7),
-            document.getElementById("name").value,
-            document.querySelector('input[name="gender"]:checked').value,
-            `${document.getElementById("dayInput").value} / ${document.getElementById("monthInput").value} / ${document.getElementById("yearInput").value}`,
-            document.getElementById("numberPhone").value,
-            document.getElementById("numberMoney").value,
-            document.getElementById("introduce").value,
-            document.getElementById("linkImg").value,
-            currentTime
-        );
+        if (this.is_Status) {
+            // Update existing user
+            const userIndex = this.array_list.findIndex(user => user.id === this.idusers);
+            if (userIndex !== -1) {
+                this.array_list[userIndex].name = document.getElementById("name").value;
+                this.array_list[userIndex].gender = document.querySelector('input[name="gender"]:checked').value;
+                this.array_list[userIndex].dateOfBirth = `${document.getElementById("dayInput").value} / ${document.getElementById("monthInput").value} / ${document.getElementById("yearInput").value}`;
+                this.array_list[userIndex].phone = document.getElementById("numberPhone").value;
+                this.array_list[userIndex].money = document.getElementById("numberMoney").value;
+                this.array_list[userIndex].introduce = document.getElementById("introduce").value;
+                this.array_list[userIndex].image = document.getElementById("linkImg").value;
+                this.array_list[userIndex].timestamp = currentTime;
+            }
 
+            this.is_Status = false;
+            this.idusers = "";
+            document.getElementById("updater").innerText = "Lưu";
+        } else {
+            // Create new user
+            const newUser = new Users(
+                this.generateRandomID(7),
+                document.getElementById("name").value,
+                document.querySelector('input[name="gender"]:checked').value,
+                `${document.getElementById("dayInput").value} / ${document.getElementById("monthInput").value} / ${document.getElementById("yearInput").value}`,
+                document.getElementById("numberPhone").value,
+                document.getElementById("numberMoney").value,
+                document.getElementById("introduce").value,
+                document.getElementById("linkImg").value,
+                currentTime
+            );
 
-        this.array_list.push(newUser);
+            this.array_list.push(newUser);
+        }
+
+        // Display the updated user list and clear input fields
         this.displayProduct();
         this.spaceVoid();
     }
+
 
 
     spaceVoid() {
@@ -132,10 +153,8 @@ class UserManager{
             this.displayProduct();
         }
     }
-
-
-
 }
+
 
 const userManager = new UserManager();
 document.getElementById("updater").onclick = function() {
